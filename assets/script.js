@@ -24,7 +24,7 @@ var getPasswordLength = function() {
       return passwordLength;
     }
   }
-};
+}; 
 
 //use lowercase letters?
 var getLowerAlpha = function() {
@@ -56,9 +56,11 @@ var getUpperAlpha = function() {
     useUpperAlpha = prompt("Would you like your password to include uppercase letters? Enter y or n.");
 
     if (useUpperAlpha === "y" || useUpperAlpha === "Y") {
+      useUpperAlpha = true;
       console.log("Use uppercase letters.");
     }
     else if (useUpperAlpha === "n" || useUpperAlpha === "N") {
+      useUpperAlpha = false;
       console.log("Do not use uppercase letters.");
     }
     else{
@@ -76,9 +78,11 @@ var getNumbers = function() {
     useNumbers = prompt("Would you like your password to include numbers? Enter y or n.");
 
     if (useNumbers === "y" || useNumbers === "Y") {
+      useNumbers = true;
       console.log("Use numbers.");
     }
     else if (useNumbers === "n" || useNumbers === "N") {
+      useNumbers = false;
       console.log("Do not use numbers.");
     }
     else{
@@ -96,9 +100,11 @@ var getCharacters = function() {
     useCharacters = prompt("Would you like your password to include special characters? Enter y or n.");
 
     if (useCharacters === "y" || useCharacters === "Y") {
+      useCharacters = true;
       console.log("Use special characters.");
     }
     else if (useCharacters === "n" || useCharacters === "N") {
+      useCharacters = false;
       console.log("Do not use special characters.");
     }
     else{
@@ -106,7 +112,9 @@ var getCharacters = function() {
       return getNumbers();
     }
   }
-};
+}
+
+
 
 // Write password to the #password input
 function writePassword() {
