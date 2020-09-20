@@ -57,12 +57,20 @@ function getPasswordSelections() {
 
 };
 
+//grabbing random characters from the created object passwordOptions
+function randomCharacters() {
+
+  //finalPassword = chosenCharacterTypes[Math.floor(Math.random() * userChoices.passwordLength)];-----------------------------------------------check askBCS
+
+}
+
 function generatePassword() {
   var userChoices = getPasswordSelections();
 
   //placeholder for final password that's being built
   var finalPassword = ("");
 
+  //array for the character types chosen by the user
   var chosenCharacterTypes = [];
 
   //var anotherArrayToPlugInRandomGeneration? = []-------------------------------------------------------------------------------address in office hours, ask about random generator
@@ -92,9 +100,9 @@ function generatePassword() {
 
   console.log(chosenCharacterTypes, userChoices.passwordLength);
 
-  //for (var i = 0; i < userChoices.passwordLength; i++)---------------------------------------------------------------------------------------------come back to adjust
+  for (var i = 0; i < userChoices.passwordLength; i++) {
 
-  finalPassword = [chosenCharacterTypes](Math.floor(Math.random() * userChoices.passwordLength));
+  };
 
   console.log(finalPassword);
 
@@ -116,5 +124,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//function activation
