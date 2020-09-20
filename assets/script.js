@@ -45,7 +45,7 @@ function getPasswordSelections() {
 
 //create object for passwordOptions
   var passwordOptions = {
-    length: length,
+    length: passwordLength,
     lowercase: useLowerAlpha,
     uppercase: useUpperAlpha,
     numbers: useNumbers,
@@ -70,31 +70,31 @@ function generatePassword() {
   //check boolean of user choices to include in chosenCharacterTypes
   if (userChoices.lowercase === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(lowerAlpha);
-    userChoices.length -= 1;
+    //userChoices.passwordLength -= 1;
   }
 
   if (userChoices.uppercase === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(upperAlpha);
-    userChoices.length -= 1;
+    //userChoices.passwordLength -= 1;
   }
 
   if (userChoices.numbers === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(numbers);
-    userChoices.length -= 1;
+    //userChoices.passwordLength -= 1;
   }
 
   if (userChoices.specialCharacters === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(characters);
-    userChoices.length -= 1;
+    //userChoices.passwordLength -= 1;
   }
 
   //eg password is 8 = all userChoices true, 4 characters from all selections, add 1 char from lowercase, add 1 char from uppercase, add 1 char from numbers, add 1 char from specialChar
 
-  console.log(chosenCharacterTypes);
+  console.log(chosenCharacterTypes, userChoices.passwordLength);
 
-  //for (var i = 0; i < passwordLength; i++)---------------------------------------------------------------------------------------------come back to adjust
+  //for (var i = 0; i < userChoices.passwordLength; i++)---------------------------------------------------------------------------------------------come back to adjust
 
-  finalPassword = chosenCharacterTypes(Math.floor(Math.random() * userChoices.length));
+  finalPassword = [chosenCharacterTypes](Math.floor(Math.random() * userChoices.passwordLength));
 
   console.log(finalPassword);
 
