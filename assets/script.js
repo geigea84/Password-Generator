@@ -1,12 +1,11 @@
 // Assignment code here
 
-var lowerAlpha = "abcdefghijklmnopqrstuvwxyz";
-var upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = "0123456789";
-var characters = "`!@#$%^&*+<>?/;:(=)|{~.,";
-var result = "";
+var lowerAlpha = "abcdefghijklmnopqrstuvwxyz".split("");
+var upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var numbers = "0123456789".split("");
+var characters = "`!@#$%^&*+<>?/;:(=)|{~.,".split("");
 
-//console.log(lowerAlpha);-----------------------------------------------------------------------------------------------------testing var format, currently spitting out as strings
+console.log(lowerAlpha, upperAlpha, numbers, characters);
 
 function getPasswordSelections() {
 
@@ -61,28 +60,37 @@ function getPasswordSelections() {
 function generatePassword() {
   var userChoices = getPasswordOptions();
 
-  //placeholder for final array that's being built
-  var finalResult = [];
+  //placeholder for final password that's being built
+  var finalPassword = ("");
 
   var chosenCharacterTypes = [];
 
   //var anotherArrayToPlugInRandomGeneration = []-------------------------------------------------------------------------------address in office hours, ask about random generator
 
   if (userChoices.lowercase === true) {
-    chosenCharacterTypes =
+    chosenCharacterTypes = chosenCharacterTypes.concat(lowerAlpha);
   }
 
   if (userChoices.uppercase === true) {
-    chosenCharacterTypes =
+    chosenCharacterTypes = chosenCharacterTypes.concat(upperAlpha);
   }
 
   if (userChoices.numbers === true) {
-    chosenCharacterTypes =
+    chosenCharacterTypes = chosenCharacterTypes.concat(numbers);
   }
 
   if (userChoices.specialCharacters === true) {
-    chosenCharacterTypes =
+    chosenCharacterTypes = chosenCharacterTypes.concat(characters);
   }
+
+  console.log(chosenCharacterTypes);
+
+  //for (var i = 0; i < passwordLength; i++)---------------------------------------------------------------------------------------------come back to adjust
+
+  finalPassword = ([chosenCharacterTypes](Math.floor(Math.random() * passwordLength)));
+
+  console.log(finalPassword);
+
 }
 
 // Get references to the #generate element
