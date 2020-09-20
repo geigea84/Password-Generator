@@ -13,3 +13,13 @@
 //}
 
 //window.alert(currentCombinedString);
+
+
+
+//function 1 gather information
+//function 2 apply information
+//function 3 execute generator with applied information
+
+//or
+//function 1 gather information
+//function 2 apply and execute
