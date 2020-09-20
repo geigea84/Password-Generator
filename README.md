@@ -22,4 +22,4 @@
 
 //or
 //function 1 gather information
-//function 2 apply and execute
+//function 2 apply and execute - we're piecing together several arrays with .concat
