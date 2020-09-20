@@ -8,112 +8,35 @@ var characters = "`!@#$%^&*+<>?/;:(=)|{~.,}";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-//establish password length
-var getPasswordLength = function() {
-  var passwordLength = "";
+function getPasswordOptions() {
 
-  while (passwordLength === "" || passwordLength === null) {
-    passwordLength = prompt("How long would you like your password to be? Please enter a value from 8 to 128.");
+  //establish password length
+    var passwordLength = parseInt(prompt("How long would you like your password to be? Please enter a value from 8 to 128."));
 
     if (passwordLength < 8 || passwordLength > 128) {
       window.alert("Please enter a value from 8 to 128.");
-      return getPasswordLength();
+      return getPasswordOptions();
     }
     else {
       console.log("Chosen password length is " + passwordLength + " characters.");
-      return passwordLength;
-    }
-  }
-}; 
+    };
 
-//use lowercase letters?
-var getLowerAlpha = function() {
-  var useLowerAlpha= "";
+  //use lowercase letters?
+    var useLowerAlpha = confirm("Would you like your password to include lowercase letters?");
+      console.log(useLowerAlpha);
 
-  while (useLowerAlpha === "" || useLowerAlpha === null) {
-    useLowerAlpha = prompt("Would you like your password to include lowercase letters? Enter y or n.");
+  //use uppercase letters?
+    var useUpperAlpha = confirm("Would you like your password to include uppercase letters?");
+      console.log(useUpperAlpha);
 
-    if (useLowerAlpha === "y" || useLowerAlpha === "Y") {
-      useLowerAlpha = true;
-      console.log("Use lowercase letters.");
-    }
-    else if (useLowerAlpha === "n" || useLowerAlpha === "N") {
-      useLowerAlpha = false;
-      console.log("Do not use lowercase letters.");
-    }
-    else{
-      window.alert("Value not valid. Please enter y or n.");
-      return getLowerAlpha();
-    }
-  }
-};
+  //use numbers?
+    var useNumbers = confirm("Would you like your password to include numbers?");
+      console.log(useNumbers);
 
-//use uppercase letters?
-var getUpperAlpha = function() {
-  var useUpperAlpha= "";
-
-  while (useUpperAlpha === "" || useUpperAlpha === null) {
-    useUpperAlpha = prompt("Would you like your password to include uppercase letters? Enter y or n.");
-
-    if (useUpperAlpha === "y" || useUpperAlpha === "Y") {
-      useUpperAlpha = true;
-      console.log("Use uppercase letters.");
-    }
-    else if (useUpperAlpha === "n" || useUpperAlpha === "N") {
-      useUpperAlpha = false;
-      console.log("Do not use uppercase letters.");
-    }
-    else{
-      window.alert("Value not valid. Please enter y or n.");
-      return getUpperAlpha();
-    }
-  }
-};
-
-//use numbers?
-var getNumbers = function() {
-  var useNumbers= "";
-
-  while (useNumbers === "" || useNumbers === null) {
-    useNumbers = prompt("Would you like your password to include numbers? Enter y or n.");
-
-    if (useNumbers === "y" || useNumbers === "Y") {
-      useNumbers = true;
-      console.log("Use numbers.");
-    }
-    else if (useNumbers === "n" || useNumbers === "N") {
-      useNumbers = false;
-      console.log("Do not use numbers.");
-    }
-    else{
-      window.alert("Value not valid. Please enter y or n.");
-      return getNumbers();
-    }
-  }
-};
-
-//use special characters?
-var getCharacters = function() {
-  var useCharacters= "";
-
-  while (useCharacters === "" || useCharacters === null) {
-    useCharacters = prompt("Would you like your password to include special characters? Enter y or n.");
-
-    if (useCharacters === "y" || useCharacters === "Y") {
-      useCharacters = true;
-      console.log("Use special characters.");
-    }
-    else if (useCharacters === "n" || useCharacters === "N") {
-      useCharacters = false;
-      console.log("Do not use special characters.");
-    }
-    else{
-      window.alert("Value not valid. Please enter y or n.");
-      return getNumbers();
-    }
-  }
+  //use special characters?
+    var useCharacters = confirm("Would you like your password to include special characters?");
+      console.log(useCharacters);
 }
-
 
 
 // Write password to the #password input
@@ -125,9 +48,5 @@ function writePassword() {
 };
 
 // Add event listener to generate button
-getPasswordLength();
-getLowerAlpha();
-getUpperAlpha();
-getNumbers();
-getCharacters();
+getPasswordOptions();
 generateBtn.addEventListener("click", writePassword);
