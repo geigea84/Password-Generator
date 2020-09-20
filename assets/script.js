@@ -7,6 +7,10 @@ var characters = "`!@#$%^&*+<>?/;:(=)|{~.,".split("");
 
 console.log(lowerAlpha, upperAlpha, numbers, characters);
 
+//"It does this:"
+//"1. Asks users so it can get all the options"
+//"2. Automatically sets the object and then spits it out"
+
 function getPasswordSelections() {
 
   //establish password length
@@ -53,16 +57,22 @@ function getPasswordSelections() {
   }
 
   console.log(passwordOptions);
+  //return used to access passwordOptions when called on in later function "function generatePassword() { carriage return, tab, var userChoices = getPasswordSelections(); }"
   return passwordOptions;
 
 };
 
-//grabbing random characters from the created object passwordOptions
-function randomCharacters() {
+//generate random value math.floor returns to use in for loop <!--see notes before for loop -- array for random index-->
+//"The length property sets or returns the number of elements in an array."
+function randomCharacters(array) {
 
-  //finalPassword = chosenCharacterTypes[Math.floor(Math.random() * userChoices.passwordLength)];-----------------------------------------------check askBCS
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var randomCharacter = array[randomIndex];
 
+  return randomCharacter;
 }
+
+//"So now to access that object- since the first function named getPasswordSelections is the one spitting out the object inside the second function you can call it"
 
 function generatePassword() {
   var userChoices = getPasswordSelections();
@@ -98,11 +108,17 @@ function generatePassword() {
 
   //eg password is 8 = all userChoices true, 4 characters from all selections, add 1 char from lowercase, add 1 char from uppercase, add 1 char from numbers, add 1 char from specialChar
 
+  //console log here notes a created array based on client choices to use as a random index for Math.random
   console.log(chosenCharacterTypes, userChoices.passwordLength);
 
-  for (var i = 0; i < userChoices.passwordLength; i++) {
+  //"You will need a for loop that iterates the number of times the user specified and grabs a character from your array by a random index" - separate function, broke this one
+  //"Inside your for loop, create a variable that store the random value math.floor returns and then you can access that in your array with bracket notation arrayName[variable]"
+  //"This will grab the value at the index of whatever number you randomly generated and stored in the variable"
+  //"Then you can push those values into a final password array"
 
-  };
+  for (var i = 0; i < userChoices.passwordLength; i++) {
+// need var defined here-----------------------------------------------------------------------------------------------------------------------------------
+  }
 
   console.log(finalPassword);
 
