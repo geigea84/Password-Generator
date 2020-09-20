@@ -4,41 +4,51 @@ var lowerAlpha = "abcdefghijklmnopqrstuvwxyz";
 var upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var characters = "`!@#$%^&*+<>?/;:(=)|{~.,";
+var result = "";
+
+console.log(lowerAlpha);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-function getPasswordOptions() {
+function getPasswordSelections() {
 
   //establish password length
   var passwordLength = parseInt(prompt("How long would you like your password to be? Please enter a value from 8 to 128."));
-  //------------------------------------------------------------------------------------------------------------------------------------how to remove choice that is not integer?
-  if (passwordLength < 8 || passwordLength > 128) {
+
+  //weed out unacceptable responses
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength) === true) {
     window.alert("Please enter a value from 8 to 128.");
-    return getPasswordOptions();
+    return getPasswordSelections();
   }
   else {
     console.log("Chosen password length is " + passwordLength + " characters.");
   };
 
 //use lowercase letters?
-  var useLowerAlpha = confirm("Would you like your password to include lowercase letters?");
+  var useLowerAlpha = confirm("Would you like your password to include lowercase letters? Click OK for Yes, or Cancel for No.");
     console.log(useLowerAlpha);
 
 //use uppercase letters?
-  var useUpperAlpha = confirm("Would you like your password to include uppercase letters?");
+  var useUpperAlpha = confirm("Would you like your password to include uppercase letters? Click OK for Yes, or Cancel for No.");
     console.log(useUpperAlpha);
 
 //use numbers?
-  var useNumbers = confirm("Would you like your password to include numbers?");
+  var useNumbers = confirm("Would you like your password to include numbers? Click OK for Yes, or Cancel for No.");
     console.log(useNumbers);
 
 //use special characters?
-  var useCharacters = confirm("Would you like your password to include special characters?");
+  var useCharacters = confirm("Would you like your password to include special characters? Click OK for Yes, or Cancel for No.");
     console.log(useCharacters);
 
-//create object for passwordOptions
-  var passwordOptions = {
+//if all character types are false
+  if (useLowerAlpha === false && useUpperAlpha === false && useNumbers === false && useCharacters === false){
+    window.alert("You must select at least one character type.  Please try again.")
+    return getPasswordSelections();
+  }
+
+//create object for passwordSelections
+  var passwordSelections = {
     length: passwordLength,
     lowercase: useLowerAlpha,
     uppercase: useUpperAlpha,
@@ -46,30 +56,11 @@ function getPasswordOptions() {
     specialCharacters: useCharacters
   }
 
-  return passwordOptions;
+  console.log(passwordSelections);
+  return passwordSelections;
 
 };
 
-//apply password options
-function applyOptions() {
-  var userChoices = getPasswordOptions();
-
-  if (userChoices.lowercase = true) {
-
-  }
-
-  if (userChoices.uppercase = true) {
-    
-  }
-
-  if (userChoices.numbers = true) {
-    
-  }
-
-  if (userChoices.specialCharacters = true) {
-    
-  }
-}
 
 
 // Write password to the #password input
@@ -81,5 +72,6 @@ function writePassword() {
 };
 
 // Add event listener to generate button
-getPasswordOptions();
+getPasswordSelections();
+
 generateBtn.addEventListener("click", writePassword);
