@@ -45,7 +45,7 @@ function getPasswordSelections() {
 
 //create object for passwordOptions
   var passwordOptions = {
-    length: passwordLength,
+    length: length,
     lowercase: useLowerAlpha,
     uppercase: useUpperAlpha,
     numbers: useNumbers,
@@ -58,38 +58,47 @@ function getPasswordSelections() {
 };
 
 function generatePassword() {
-  var userChoices = getPasswordOptions();
+  var userChoices = getPasswordSelections();
 
   //placeholder for final password that's being built
   var finalPassword = ("");
 
   var chosenCharacterTypes = [];
 
-  //var anotherArrayToPlugInRandomGeneration = []-------------------------------------------------------------------------------address in office hours, ask about random generator
+  //var anotherArrayToPlugInRandomGeneration? = []-------------------------------------------------------------------------------address in office hours, ask about random generator
 
+  //check boolean of user choices to include in chosenCharacterTypes
   if (userChoices.lowercase === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(lowerAlpha);
+    userChoices.length -= 1;
   }
 
   if (userChoices.uppercase === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(upperAlpha);
+    userChoices.length -= 1;
   }
 
   if (userChoices.numbers === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(numbers);
+    userChoices.length -= 1;
   }
 
   if (userChoices.specialCharacters === true) {
     chosenCharacterTypes = chosenCharacterTypes.concat(characters);
+    userChoices.length -= 1;
   }
+
+  //eg password is 8 = all userChoices true, 4 characters from all selections, add 1 char from lowercase, add 1 char from uppercase, add 1 char from numbers, add 1 char from specialChar
 
   console.log(chosenCharacterTypes);
 
   //for (var i = 0; i < passwordLength; i++)---------------------------------------------------------------------------------------------come back to adjust
 
-  finalPassword = ([chosenCharacterTypes](Math.floor(Math.random() * passwordLength)));
+  finalPassword = chosenCharacterTypes(Math.floor(Math.random() * userChoices.length));
 
   console.log(finalPassword);
+
+  return finalPassword;
 
 }
 
@@ -109,5 +118,3 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //function activation
-getPasswordSelections();
-//generatePassword();
