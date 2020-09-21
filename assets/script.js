@@ -78,7 +78,7 @@ function generatePassword() {
   var userChoices = getPasswordSelections();
 
   //placeholder for final password that's being built
-  var finalPassword = ("");
+  var finalPassword = [];
 
   //array for the character types chosen by the user
   var chosenCharacterTypes = [];
@@ -109,20 +109,22 @@ function generatePassword() {
   //eg password is 8 = all userChoices true, 4 characters from all selections, add 1 char from lowercase, add 1 char from uppercase, add 1 char from numbers, add 1 char from specialChar
 
   //console log here notes a created array based on client choices to use as a random index for Math.random
-  console.log(chosenCharacterTypes, userChoices.passwordLength);
+  console.log(chosenCharacterTypes, userChoices.length);
 
-  //"You will need a for loop that iterates the number of times the user specified and grabs a character from your array by a random index" - separate function, broke this one
+  //"You will need a for loop that iterates the number of times the user specified and grabs a character from your array by a random index" - use a separate function, it broke this one
   //"Inside your for loop, create a variable that store the random value math.floor returns and then you can access that in your array with bracket notation arrayName[variable]"
   //"This will grab the value at the index of whatever number you randomly generated and stored in the variable"
   //"Then you can push those values into a final password array"
 
-  for (var i = 0; i < userChoices.passwordLength; i++) {
-// need var defined here-----------------------------------------------------------------------------------------------------------------------------------
+  for (var i = 0; i < userChoices.length; i++) {
+    var randomChar = randomCharacters(chosenCharacterTypes);
+
+    finalPassword.push(randomChar)
   }
 
   console.log(finalPassword);
 
-  return finalPassword;
+  return finalPassword.join("");
 
 }
 
