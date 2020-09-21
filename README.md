@@ -3,6 +3,8 @@
 ## Purpose
 The purpose of this project was to generate a minimum 8 character, maximum 128 character password based off parameters decided by the user.
 
+The user is directed through a prompt and series of confirms to decide their desired password length, and whether or not they would like to use lowercase letters, uppercase letters, numbers, and/or special characters.
+
 Link to deployed application:
 https://geigea84.github.io/Password-Generator/
 
