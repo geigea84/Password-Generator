@@ -1,6 +1,9 @@
 # Password-Generator
 
-## Thoughts
+## Purpose
+The purpose of this project was to generate a minimum 8 character, maximum 128 character password based off parameters decided by the user.
+
+## Thoughts While Building
 * Consider the order of what should happen, then code to follow suit
 * eg client selects length, selects lowerAlpha, selects upperAlpha, selects numbers, selects characters, verify selections, randomize with the requested selections, then input on page
 
