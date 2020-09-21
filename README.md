@@ -14,7 +14,9 @@
 
 //window.alert(currentCombinedString);
 
+//3.4.4 using Math
 
+//3.2.8, 3.2.5 concatenate
 
 //function 1 gather information
 //function 2 apply information
@@ -23,3 +25,5 @@
 //or
 //function 1 gather information
 //function 2 apply and execute - we're piecing together several arrays with .concat
+
+//thought about JavaScript: Functions are created to provide a value (or values) for the next function.  Create the function

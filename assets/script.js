@@ -121,7 +121,7 @@ function generatePassword() {
 
     finalPassword.push(randomChar)
   }
-
+  //not really necessary at this point, but I like seeing values pop up in DevTools
   console.log(finalPassword);
 
   return finalPassword.join("");
